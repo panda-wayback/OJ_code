@@ -96,3 +96,7 @@ main*
 main.dSYM/
 build
 
+input.txt
+output.txt
+
+.DS_Store

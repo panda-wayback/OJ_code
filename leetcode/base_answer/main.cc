@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <iomanip>
+#include <bits/stdc++.h>
 using namespace std;
 
 // 在这里定义你的 Solution 类
@@ -12,34 +8,12 @@ public:
     void solve() {
         // TODO: 实现你的解法
     }
-
-    vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        // TODO: 实现你的解法
-        return {};
-    }
 };
 
 // 用于本地调试的函数
 void run() {
     Solution solution;
-    
-    // 读取输入
-    vector<string> strs;
-    string str;
-    while (cin >> str) {
-        strs.push_back(str);
-    }
-    
-    // 调用解法
-    auto result = solution.groupAnagrams(strs);
-    
-    // 输出结果
-    for (const auto& group : result) {
-        for (const auto& s : group) {
-            cout << s << " ";
-        }
-        cout << endl;
-    }
+    solution.solve();
 }
 
 int main() {
