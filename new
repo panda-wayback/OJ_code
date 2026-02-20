@@ -1,16 +1,20 @@
 #!/usr/bin/env bash
-# 新建题目目录并复制模板。用法: ./new <平台> <题号>  如  ./new luogu P5250  或  ./new cf 7 A
+# 新建题目目录。用法: ./new <平台> <题号>  如  ./new luogu P5250  或  ./new cf 7 A
 set -e
 ROOT="$(cd "$(dirname "$0")" && pwd)"
 TEMPLATE="$ROOT/base_answer"
 if [ $# -lt 2 ]; then
-  echo "用法: $0 <平台> <题号>  例: $0 luogu P5250  或  $0 cf 7 A"
+  echo "用法: $0 <平台> <题号>  例: $0 luogu P5250  或  $0 cf 7A"
   exit 1
 fi
 PLATFORM="$1"
-ID="$2"
-DIR="$ROOT/ACM/$PLATFORM/$ID"
+if [ "$PLATFORM" = cf ] && [ $# -ge 3 ]; then
+  ID="$2$3"
+else
+  ID="$2"
+fi
+DIR="$ROOT/code/$PLATFORM/$ID"
 mkdir -p "$DIR"
 cp "$TEMPLATE/main.cc" "$DIR/main.cc"
 touch "$DIR/slyar.in"
-echo "已创建 $DIR（main.cc、slyar.in），在 run() 里写代码，根目录 make run DIR=ACM/$PLATFORM/$ID 运行。"
+echo "已创建 code/$PLATFORM/$ID，运行: make run DIR=code/$PLATFORM/$ID"
